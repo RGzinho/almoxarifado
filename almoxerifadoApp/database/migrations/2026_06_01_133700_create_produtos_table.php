@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nome');
             $table->string('marca');
-            $table->integer('estoque');
+            $table->integer('quantidade')->default(0);
         });
     }
 

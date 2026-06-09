@@ -1,33 +1,26 @@
 <?php
 
-namespace App\Filament\Almoxarifado\Resources\Produtos\Tables;
+namespace App\Filament\Resources\Movimentos\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreBulkAction;
 use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class ProdutosTable
+class MovimentosTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('id')
-                    ->label('ID')
-                    ->searchable(),
-                TextColumn::make('nome')
-                    ->searchable(),
-                TextColumn::make('descrição')
-                    ->searchable(),
-                TextColumn::make('quantidade')
-                    ->numeric()
-                    ->sortable(),
+                //
             ])
             ->filters([
-                //
+                TrashedFilter::make(),
             ])
             ->recordActions([
                 ViewAction::make(),
@@ -36,6 +29,8 @@ class ProdutosTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
+                    ForceDeleteBulkAction::make(),
+                    RestoreBulkAction::make(),
                 ]),
             ]);
     }

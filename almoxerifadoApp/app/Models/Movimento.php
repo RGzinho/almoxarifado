@@ -9,7 +9,7 @@ class Movimento extends Model
 {
     protected $fillable = [
         'produto_id',
-        'estoque',
+        'movimento',
         'tipo',
     ];
     public function produto(){  

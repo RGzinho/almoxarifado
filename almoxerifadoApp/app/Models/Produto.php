@@ -10,7 +10,7 @@ class Produto extends Model
     protected $fillable = [
         'nome',
         'marca',
-        'estoque',
+        'quantidade',
     ];
     public function movimento(){  
         return $this->hasMany(Movimento::class);

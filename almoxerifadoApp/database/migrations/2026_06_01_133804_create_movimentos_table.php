@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('quantidade');
-            $table->foreignId('produto_id')->constrained()->onDelete();
+            $table->foreignId('produto_id')->constrained('produtos')->cascadeOnDelete();
             $table->enum('tipo', ['entrada', 'saida']);         
         });
     }
